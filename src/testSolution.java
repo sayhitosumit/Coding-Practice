@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class testSolution {
 
@@ -40,6 +37,25 @@ public class testSolution {
         return highestAltitude;
     }
 
+
+    public boolean uniqueOccurrences(int[] arr) {
+
+        Map<Integer,Integer> map = new HashMap<>();
+        Map<Integer,Integer> map2 = new HashMap<>();
+        for (int i :arr ) {
+            if(map.containsKey(i)) map.put(i, map.get(i)+1);
+            else map.put(i,1);
+        }
+
+        for (Map.Entry<Integer, Integer> entry: map.entrySet()){
+             if(map2.containsValue(entry.getValue())) return false;
+             else map2.put(entry.getKey(),entry.getValue());
+
+        }
+
+
+        return true;
+    }
 
     public List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
         Set<Integer> diff1 = new HashSet<>();
